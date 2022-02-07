@@ -1,4 +1,4 @@
-var rok_kraj = new Date("Jan 21, 2021 00:00:00").getTime();
+var rok_kraj = new Date("Feb 21, 2022 00:00:00").getTime();
 var x = setInterval(function() {
   var datum = new Date().getTime();
   var odbrojavanje = rok_kraj - datum;
@@ -139,7 +139,7 @@ for(var i=0;i<src.length;i++){
 
 function provera(){
     var emailNewsletter=document.getElementById('provera').value
-    var email1regex= /^[a-z][a-z_\.0-9]+@([a-z0-9]{3,7}\.){1-3}[a-z]{2,3}$/;
+    var email1regex= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
     var email1result = email1regex.test(emailNewsletter);
     var ispis=""
     if(!email1result){
@@ -179,6 +179,37 @@ function provera1(){
     } else {
         pprovera.innerHTML=``
     } 
+    proveraDatum();
+    
+}
+function proveraDatum(){
+    var datum1Text=document.getElementById("checkin").value;
+    var datum1=new Date(datum1Text);
+    var datum=new Date();
+    var pprovera=document.getElementById("checkinprov");
+    if(datum1<datum){
+        pprovera.innerHTML='Incorrect entry!';
+    }
+    else{
+        pprovera.innerHTML=``;
+    }
+    if(datum1=="Invalid Date"){
+        pprovera.innerHTML='Please select option!';
+    }
+    var datum2Text=document.getElementById("checkout").value;
+    var datum2=new Date(datum2Text);
+    var pprovera=document.getElementById("checkoutprov");
+    if(datum2<datum1){
+        pprovera.innerHTML='Incorrect entry!';
+    }
+    else{
+        pprovera.innerHTML=``;
+    }
+    console.log(datum1);
+    console.log(datum);
+    if(datum2=="Invalid Date"){
+        pprovera.innerHTML='Please select option!';
+    }
 }
 function provera2(){
     var ddlPlacanje = document.getElementById("desthot");
@@ -205,7 +236,33 @@ function provera2(){
     } else {
         pprovera.innerHTML=``
     } 
-
+    var datum1Text=document.getElementById("checkin1").value;
+    var datum1=new Date(datum1Text);
+    var datum=new Date();
+    var pprovera=document.getElementById("checkinprov1");
+    if(datum1<datum){
+        pprovera.innerHTML='Incorrect entry!';
+    }
+    else{
+        pprovera.innerHTML=``;
+    }
+    if(datum1=="Invalid Date"){
+        pprovera.innerHTML='Please select option!';
+    }
+    var datum2Text=document.getElementById("checkout1").value;
+    var datum2=new Date(datum2Text);
+    var pprovera=document.getElementById("checkoutprov1");
+    if(datum2<datum1){
+        pprovera.innerHTML='Incorrect entry!';
+    }
+    else{
+        pprovera.innerHTML=``;
+    }
+    console.log(datum1);
+    console.log(datum);
+    if(datum2=="Invalid Date"){
+        pprovera.innerHTML='Please select option!';
+    }
 }
 function provera3(){
     var rbAll = document.formafli.rb;
@@ -257,4 +314,32 @@ function provera3(){
     } else {
         pprovera.innerHTML=``
     } 
+    var datum1Text=document.getElementById("checkin2").value;
+    var datum1=new Date(datum1Text);
+    var datum=new Date();
+    var pprovera=document.getElementById("checkinprov2");
+    if(datum1<datum){
+        pprovera.innerHTML='Incorrect entry!';
+    }
+    else{
+        pprovera.innerHTML=``;
+    }
+    if(datum1=="Invalid Date"){
+        pprovera.innerHTML='Please select option!';
+    }
+    var datum2Text=document.getElementById("checkout2").value;
+    var datum2=new Date(datum2Text);
+    var pprovera=document.getElementById("checkoutprov2");
+    if(datum2<datum1){
+        pprovera.innerHTML='Incorrect entry!';
+    }
+    else{
+        pprovera.innerHTML=``;
+    }
+    console.log(datum1);
+    console.log(datum);
+    if(datum2=="Invalid Date"){
+        pprovera.innerHTML='Please select option!';
+    }    
 }
+
